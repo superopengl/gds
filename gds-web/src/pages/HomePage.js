@@ -50,7 +50,7 @@ const StyledLayout = styled(ProLayout)`
 
 .ant-pro-global-header-layout-top, .ant-pro-top-nav-header {
   // background-color: rgba(19,194,194,0.7);
-  background-color: #00474fdd;
+  background-color: #00c1d5dd;
   // background-color: rgba(0, 41, 61, 0.7); 
 // background-image: linear-gradient(135deg, #00474f, #00474f 400px, rgba(255,255,255,0.0) 400px, rgba(255,255,255,0.0) 100%);
 }
@@ -81,19 +81,49 @@ const HomePage = (props) => {
 
   const ROUTES = [
     {
-      key: '0',
-      path: '/slogan',
-      name: 'Feature',
+      path: '/philosophy',
+      name: 'Our Philosophy',
       visible: true,
     },
     {
-      key: '3',
+      path: '/team',
+      name: 'Our Team',
+      visible: true,
+    },
+    {
+      path: '/programs',
+      name: 'Our Programs',
+      visible: true,
+    },
+    {
       path: '/locations',
-      name: 'Branches',
-      visible: true,
+      name: 'Locations',
+      routes: [
+        {
+          key: 'x',
+          path: '/tags',
+          name: 'x',
+        },
+        {
+          path: '/config',
+          name: '1',
+        },
+        {
+          path: '/email_template',
+          name: '2',
+        },
+        {
+          path: '/commission_policy',
+          name: '3',
+        },
+        {
+          path: '/discount_policy',
+          name:'4',
+        },
+      ]
     },
     {
-      key: '2',
+      key: 'menu',
       path: '/menu',
       name: 'Menu',
       visible: true,
@@ -120,7 +150,7 @@ const HomePage = (props) => {
     layout="top"
     navTheme="dark"
     route={{ routes: ROUTES }}
-    location={{ pathname: '/non' }}
+    location={{ pathname: '/' }}
     fixedHeader={true}
     menuItemRender={(item, dom) => item.visible ? <div onClick={() => handleMenuClick(item.path)}>{dom}</div> : null}
   >
