@@ -11,7 +11,7 @@ box-sizing: border-box;
 width: 100%;
 
 a {
-  color: #ffffff;
+  color: #ffd100;
 
   &:hover {
     text-decoration: underline;
@@ -33,8 +33,8 @@ class HomeContactArea extends React.Component {
         xxl: 24
       },
       style: {
-        backgroundColor: '#006d75',
-        color: '#f0f0f0',
+        backgroundColor: '#00c1d5',
+        color: '#ffd100',
       }
     }
 
@@ -50,7 +50,7 @@ class HomeContactArea extends React.Component {
     return (
       <HomeRowArea {...props}>
         <InfoCard >
-          <Title style={{ color: "#ffffff" }}>Contact</Title>
+          <Title style={{ color: "#ffd100" }}>Contact</Title>
           <Row style={{ maxWidth: 480, margin: '1rem auto' }} gutter={16}>
             <Col {...span}>
               <MailOutlined style={{ marginRight: 8 }} /><a href="mailto:techseeding2020@gmail.com">techseeding2020@gmail.com</a>

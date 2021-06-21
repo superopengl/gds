@@ -6,6 +6,8 @@ const darkTheme = getThemeVariables({
   compact: false, // Enable compact mode
 });
 
+// Yellow #ffd100
+
 const modifyVars = {
   ...darkTheme,
   '@primary-color': '#00c1d5', // gb(0, 193, 213)

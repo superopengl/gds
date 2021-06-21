@@ -32,7 +32,7 @@ position: relative;
 // background-position: center;
 // background-image: url("images/logo.svg");
 // background-repeat: repeat;
-background-color: #00474f;
+background-color: #00c1d5;
 // background-size: 120px;
 // opacity: 0.75;
 // background-image: linear-gradient(135deg, #13c2c2, #13c2c2 25%, #5cdbd3 25%, #5cdbd3 50%, #87e8de 50%, #87e8de 75%, #b5f5ec 75%, #b5f5ec 100%);
@@ -51,17 +51,17 @@ padding: 1rem;
   text-align: center;
 }
 
-.poster-patterns {
-background-image: url("images/logo.svg");
-  background-repeat: repeat;
-  background-size: 120px;
-  opacity: 0.1;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-}
+// .poster-patterns {
+// background-image: url("images/logo.svg");
+//   background-repeat: repeat;
+//   background-size: 120px;
+//   opacity: 0.1;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   position: absolute;
+// }
 
 
 
@@ -94,12 +94,12 @@ const HomeCarouselAreaRaw = props => {
         <div className="poster-patterns" />
         <Space direction="vertical" style={{ maxWidth: '1200px', textAlign: 'center' }}>
           <Space size="large">
-            <Logo />
-            <Title style={{ fontSize: catchPhraseSize, color: '#5cdbd3' }} >ZILEDIN</Title>
+            <Logo size={400}/>
+            {/* <Title style={{ fontSize: catchPhraseSize, color: '#ffd100' }} >Golden Seeds Early Learning</Title> */}
           </Space>
-          <Title level={2} style={{ marginTop: 0, fontWeight: 300, fontSize: Math.max(catchPhraseSize * 0.5, 14) }}>
+          {/* <Title level={2} style={{ marginTop: 0, fontWeight: 300, fontSize: Math.max(catchPhraseSize * 0.5, 14) }}>
             All in one system for file, doc, job, task and workflow management. Come on, join us today!!
-              </Title>
+              </Title> */}
         </Space>
       </PosterContainer>
     </ContainerStyled>

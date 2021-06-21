@@ -41,22 +41,22 @@ max-width: 1200px;
 const FEATURES = [
   {
     icon: <GiGraduateCap />,
-    title: 'Professional',
+    title: 'Section 1',
     content: 'Tom and Jerry is an American animated franchise and series of comedy short films created in 1940 by William Hanna and Joseph Barbera. Best known for its 161 theatrical short films by Metro-Goldwyn-Mayer, the series centers on the rivalry between the titular characters of a cat named Tom and a mouse named Jerry.'
   },
   {
     icon: <BsLightning />,
-    title: 'Realtime',
+    title: 'Section 2',
     content: 'Tom and Jerry is an American animated franchise and series of comedy short films created in 1940 by William Hanna and Joseph Barbera. Best known for its 161 theatrical short films by Metro-Goldwyn-Mayer, the series centers on the rivalry between the titular characters of a cat named Tom and a mouse named Jerry.'
   },
   {
     icon: <AiOutlineGlobal />,
-    title: 'Global',
+    title: 'Section 3',
     content: 'Tom and Jerry is an American animated franchise and series of comedy short films created in 1940 by William Hanna and Joseph Barbera. Best known for its 161 theatrical short films by Metro-Goldwyn-Mayer, the series centers on the rivalry between the titular characters of a cat named Tom and a mouse named Jerry.'
   },
   {
     icon: <BiDollar />,
-    title: 'Quality',
+    title: 'Section 4',
     content: 'Tom and Jerry is an American animated franchise and series of comedy short films created in 1940 by William Hanna and Joseph Barbera. Best known for its 161 theatrical short films by Metro-Goldwyn-Mayer, the series centers on the rivalry between the titular characters of a cat named Tom and a mouse named Jerry.'
   }
 ]

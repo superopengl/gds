@@ -13,13 +13,13 @@ const FooterStyled = styled(Footer)`
 width: 100%;
 text-align: center;
 font-size: 0.8rem;
-color: #aaaaaa;
-background-color: #000011;
+color: #ffffffbb;
+background-color: #00c1d5;
 padding-left: 1rem;
 padding-right: 1rem;
 
 a {
-  color: #aaaaaa;
+  color: #ffffffbb;
 
   &:hover {
     text-decoration: underline;
@@ -40,7 +40,7 @@ const HomeFooter = () => (
           <div></div>
           <p>©{new Date().getFullYear()} <a href="https://www.techseeding.com.au" target="_blank" rel="noopener noreferrer">Techseeding PTY LTD. All right reserved.</a></p>
           <p style={{ display: 'none' }}>Version {gitVersion}</p>
-          <p><a href="/terms_and_conditions" target="_blank">Terms & Conditions</a> | <a href="/privacy_policy" target="_blank">Privacy Policy</a> </p>
+          {/* <p><a href="/terms_and_conditions" target="_blank">Terms & Conditions</a> | <a href="/privacy_policy" target="_blank">Privacy Policy</a> </p> */}
         </Col>
       </Row>
       <Row style={{marginTop: 4}}>

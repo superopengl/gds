@@ -141,7 +141,7 @@ const HomePage = (props) => {
   }
 
   return <StyledLayout
-    logo="/images/logo.svg"
+    logo="/images/logo2.png"
     title={null}
     // logo="/images/logo-transparent.png"
     collapsed={collapsed}
@@ -162,7 +162,7 @@ const HomePage = (props) => {
       <HomeFeatureArea />
     </section> */}
     <section><HomeServiceArea /></section>
-    <section><HomeContactArea bgColor="#142952"></HomeContactArea></section>
+    {/* <section><HomeContactArea bgColor="#142952"></HomeContactArea></section> */}
     {/* <section><HomeSearchArea /></section> */}
     {/* <section>
       <HomeServiceArea bgColor="#135200" />
