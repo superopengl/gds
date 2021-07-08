@@ -1,175 +1,106 @@
-// import 'App.css';
-import HomeCarouselArea from 'components/homeAreas/HomeCarouselArea';
-import HomeServiceArea from 'components/homeAreas/HomeServiceArea';
-import HomeFooter from 'components/HomeFooter';
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { Typography, Carousel, Space, Row, Col } from 'antd';
 import { withRouter } from 'react-router-dom';
-import ProLayout from '@ant-design/pro-layout';
-import HomeContactArea from 'components/homeAreas/HomeContactArea.js';
-import smoothscroll from 'smoothscroll-polyfill';
+import { useWindowWidth } from '@react-hook/window-size'
+import { Logo } from 'components/Logo';
 
-smoothscroll.polyfill();
+const { Title, Paragraph, Text } = Typography;
 
-const StyledLayout = styled(ProLayout)`
-.ant-layout {
-  background-color: white;
-}
 
-.ant-menu-item:hover {
-  .ant-pro-menu-item-title {
-    color: rgba(255,255,255, 0.7);
-    // font-weight: 500;
-  }
-  background-color: transparent !important;
-}
+const ContainerStyled = styled.div`
+border-bottom: 1px solid #f0f0f0;
+margin: 0 auto 0 auto;
+// padding: 1rem;
+width: 100%;
+`;
 
-.ant-layout-content {
-  margin: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
 
-.ant-pro-top-menu {
-  background: transparent !important;
-}
 
-.ant-pro-top-nav-header {
-  // box-shadow: none;
-}
+const PosterContainer = styled.div`
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+width: 100%;
+min-height: 200px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 
-.ant-pro-top-nav-header-logo, .ant-pro-top-nav-header-main-left {
-  min-width: 0;
-}
-
-.ant-pro-top-nav-header-main {
-  margin: auto;
-  // max-width: 1200px;
-}
-
-.ant-pro-global-header-layout-top, .ant-pro-top-nav-header {
-  // background-color: rgba(19,194,194,0.7);
-  background-color: #00c1d5dd;
-  // background-color: rgba(0, 41, 61, 0.7); 
-// background-image: linear-gradient(135deg, #00474f, #00474f 400px, rgba(255,255,255,0.0) 400px, rgba(255,255,255,0.0) 100%);
-}
-
-.ant-pro-global-header-collapsed-button {
-  // color: rgba(255,255,255,0.75);
-  color: rgba(0,0,0,0.75);
-}
-
-.ant-pro-menu-item-title {
-  color: rgba(255,255,255,0.95);
-  // color: rgba(0,0,0,0.75);
-  font-weight: 400;
+.ant-typography {
+  color: rgba(255,255,255,1);
+  text-align: center;
 }
 `;
 
-const scrollToElement = (selector) => {
-  document.querySelector(selector)?.scrollIntoView({
-    behavior: 'smooth',
-    block: "start",
-    inline: "nearest"
-  });
-}
+const ImgStyled = styled.div`
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+width: 100%;
+overflow: hidden;
+// height: 600px;
+box-shadow: inset 0 -10px 10px -10px #888888;
+
+`
+
+const CarouselRow = styled(Row)`
+background-image: url("images/background.jpg");
+background-repeat: repeat;
+background-size: 30%;
+`;
 
 
-const HomePage = (props) => {
-  const [collapsed, setCollapsed] = React.useState(false);
+const images = [
+  'https://picsum.photos/id/1018/1000/600/',
+  'https://picsum.photos/id/1015/1000/600/',
+  'https://picsum.photos/id/1019/1000/600/',
+];
 
-  const ROUTES = [
-    {
-      path: '/philosophy',
-      name: 'Our Philosophy',
-      visible: true,
-    },
-    {
-      path: '/team',
-      name: 'Our Team',
-      visible: true,
-    },
-    {
-      path: '/programs',
-      name: 'Our Programs',
-      visible: true,
-    },
-    {
-      path: '/locations',
-      name: 'Locations',
-      routes: [
-        {
-          key: 'x',
-          path: '/tags',
-          name: 'x',
-        },
-        {
-          path: '/config',
-          name: '1',
-        },
-        {
-          path: '/email_template',
-          name: '2',
-        },
-        {
-          path: '/commission_policy',
-          name: '3',
-        },
-        {
-          path: '/discount_policy',
-          name:'4',
-        },
-      ]
-    },
-    {
-      key: 'menu',
-      path: '/menu',
-      name: 'Menu',
-      visible: true,
-    },
-  ];
+const HomePage = () => {
 
-  const handleMenuClick = (path) => {
-    const isAnchor = path.includes('#');
-    if (isAnchor) {
-      scrollToElement(path.replace(/\//, ''))
-      setCollapsed(true);
-    } else {
-      props.history.push(path);
-    }
-  }
+  const windowWidth = useWindowWidth();
 
-  return <StyledLayout
-    logo="/images/logo2.png"
-    title={null}
-    // logo="/images/logo-transparent.png"
-    collapsed={collapsed}
-    onCollapse={setCollapsed}
-    siderWidth={270}
-    layout="top"
-    navTheme="dark"
-    route={{ routes: ROUTES }}
-    location={{ pathname: '/' }}
-    fixedHeader={true}
-    menuItemRender={(item, dom) => item.visible ? <div onClick={() => handleMenuClick(item.path)}>{dom}</div> : null}
-  >
 
-    <section>
-      <HomeCarouselArea />
-    </section>
-    {/* <section>
-      <HomeFeatureArea />
-    </section> */}
-    <section><HomeServiceArea /></section>
-    {/* <section><HomeContactArea bgColor="#142952"></HomeContactArea></section> */}
-    {/* <section><HomeSearchArea /></section> */}
-    {/* <section>
-      <HomeServiceArea bgColor="#135200" />
-    </section> */}
+  const posterHeight = windowWidth < 576 ? 400 :
+    windowWidth < 992 ? 450 :
+      500;
 
-    <HomeFooter />
-  </StyledLayout>
+  const catchPhraseSize = windowWidth < 576 ? 28 :
+    windowWidth < 992 ? 36 :
+      44;
+  return (
+    <ContainerStyled gutter={0} style={{ position: 'relative' }}>
+      <Carousel autoplay dotPosition="bottom" >
+        {images.map((x, i) => (
+          <div key={i}>
+            <ImgStyled style={{ height: posterHeight, backgroundImage: `url("${x}")` }}>
+            </ImgStyled>
+          </div>
+        ))}
+      </Carousel>
+      <PosterContainer style={{ height: posterHeight, position: 'absolute', top: 0, left: 0, right: 0 }}>
+        <Space direction="vertical" style={{ maxWidth: '1200px', textAlign: 'center' }}>
+          <Space size="large">
+          </Space>
+          <Title style={{ fontSize: catchPhraseSize, color: '#ffd100' }} >
+            “It all starts with a Seed…”
+          </Title>
+          <Text style={{ fontSize: catchPhraseSize * 0.6, color: '#ffd100' }} >~ Bryan E. Wright</Text>
+          {/* <Title level={2} style={{ marginTop: 0, fontWeight: 300, fontSize: Math.max(catchPhraseSize * 0.5, 14) }}>
+            All in one system for file, doc, job, task and workflow management. Come on, join us today!!
+              </Title> */}
+        </Space>
+      </PosterContainer>
+      <Logo size={400} />
+
+      <Paragraph>
+        We imagine every child to be like a little seed - they are born with everything they need to thrive. We support children to unlock their full potential by providing them with a welcoming environment and the loving guidance they need to flourish. We place developing and maintaining meaningful relationships at the heart of all we do.
+      </Paragraph>
+    </ContainerStyled>
+  );
 }
 
 HomePage.propTypes = {};

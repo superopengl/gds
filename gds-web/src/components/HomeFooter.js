@@ -14,9 +14,11 @@ width: 100%;
 text-align: center;
 font-size: 0.8rem;
 color: #ffffffbb;
-background-color: #00c1d5;
+background-color: #001117;
 padding-left: 1rem;
 padding-right: 1rem;
+position: fixed;
+bottom: 0;
 
 a {
   color: #ffffffbb;
