@@ -12,6 +12,7 @@ import PhilosophyPage from './PhilosophyPage';
 import TeamPage from './TeamPage';
 import {Tag, Typography} from 'antd';
 import NorthNarrabeenPage from './locations/NorthNarrabeenPage';
+import CampsiePage from './locations/CampsiePage';
 
 smoothscroll.polyfill();
 
@@ -152,11 +153,11 @@ const PageLayout = (props) => {
     route={{ routes: ROUTES }}
     location={{ pathname }}
     fixedHeader={true}
-    footerRender={() => <HomeFooter />}
+    // footerRender={() => <HomeFooter />}
     contentStyle={{
-      padding: '48px 0 110px',
-      // backgroundColor: '#00c1d5',
-      height: '100%'
+      padding: '48px 0 0',
+      backgroundColor: '#00c1d5',
+      // height: '100%'
     }}
     // menuItemRender={(item, dom) => item.visible ? <div onClick={() => handleMenuClick(item.path)}>{dom}</div> : null}
     menuItemRender={(item, dom) => {
@@ -173,7 +174,7 @@ const PageLayout = (props) => {
     <Switch>
       <Route path="/" exact component={HomePage} />
       <Route path="/locations/north_narrabeen" exact component={NorthNarrabeenPage} />
-      <Route path="/locations/campsie" exact component={MenusPage} />
+      <Route path="/locations/campsie" exact component={CampsiePage} />
       <Route path="/locations/auburn" exact component={MenusPage} />
       <Route path="/program" exact component={ProgramPage} />
       <Route path="/philosophy" exact component={PhilosophyPage} />
@@ -181,6 +182,7 @@ const PageLayout = (props) => {
       <Route path="/menus" exact component={MenusPage} />
       <Redirect to="/" />
     </Switch>
+    <HomeFooter />
   </StyledLayout>
     
 }

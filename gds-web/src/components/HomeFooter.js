@@ -17,8 +17,8 @@ color: #ffffffbb;
 background-color: #001117;
 padding-left: 1rem;
 padding-right: 1rem;
-position: fixed;
-bottom: 0;
+// position: fixed;
+// bottom: 0;
 
 a {
   color: #ffffffbb;

@@ -2,11 +2,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import { Typography, Row, Col, List, Card, Image } from 'antd';
+import { Typography, Row, Col, List, Card, Image, Avatar } from 'antd';
 
 const { Title, Text, Paragraph, Link } = Typography;
 const Container = styled.div`
-
+  padding: 3rem 1rem 20rem;
 `;
 
 const content = [
@@ -57,10 +57,15 @@ const TeamPage = (props) => {
         <Card
           hoverable
           bodyStyle={{ textAlign: 'center' }}
-          cover={<Image
+          cover={
+          <Image
             preview={false}
             src={item.photoUrl}
-          />}
+          />
+          // <Row justify="center" align="middle">
+          // <Avatar src={item.photoUrl} size={300}/>
+          // </Row>
+          }
         >
           <Card.Meta title={item.name} description={<>{item.position} {item.location}</>} />
         </Card>
