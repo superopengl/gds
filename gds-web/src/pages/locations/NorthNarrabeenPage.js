@@ -32,7 +32,7 @@ const images = [
   'https://picsum.photos/id/1019/1000/600/',
 ];
 
-const HomePage = () => {
+const NorthNarrabeenPage = () => {
 
   const windowWidth = useWindowWidth();
 
@@ -46,6 +46,9 @@ const HomePage = () => {
       44;
   return (
     <>
+      <Title style={{ fontSize: catchPhraseSize, color: '#ffd100' }} >
+        North Narrabeen
+      </Title>
       <ImageCarousel images={images} />
 
       <PosterContainer style={{ height: posterHeight, position: 'absolute', top: 0, left: 0, right: 0 }}>
@@ -70,8 +73,8 @@ const HomePage = () => {
   );
 }
 
-HomePage.propTypes = {};
+NorthNarrabeenPage.propTypes = {};
 
-HomePage.defaultProps = {};
+NorthNarrabeenPage.defaultProps = {};
 
-export default withRouter(HomePage);
+export default withRouter(NorthNarrabeenPage);

@@ -11,6 +11,7 @@ import HomePage from './HomePage';
 import PhilosophyPage from './PhilosophyPage';
 import TeamPage from './TeamPage';
 import {Tag, Typography} from 'antd';
+import NorthNarrabeenPage from './locations/NorthNarrabeenPage';
 
 smoothscroll.polyfill();
 
@@ -113,19 +114,18 @@ const PageLayout = (props) => {
       visible: true,
     },
     {
-      path: '/locations',
       name: 'Locations',
       routes: [
         {
-          path: '/north_narrabeen',
+          path: '/locations/north_narrabeen',
           name: 'North Narrabeen',
         },
         {
-          path: '/campsie',
+          path: '/locations/campsie',
           name: 'Campsie',
         },
         {
-          path: '/auburn',
+          path: '/locations/auburn',
           name: <>Auburn <Tag color="#fdd715">coming soon</Tag></>,
           disabled: true
         },
@@ -137,8 +137,6 @@ const PageLayout = (props) => {
       props.history.push('/');
       setCollapsed(false);
   }
-
-
 
   return   <StyledLayout
     logo="/images/logo2.png"
@@ -174,7 +172,7 @@ const PageLayout = (props) => {
   >
     <Switch>
       <Route path="/" exact component={HomePage} />
-      <Route path="/locations/north_narrabeen" exact component={MenusPage} />
+      <Route path="/locations/north_narrabeen" exact component={NorthNarrabeenPage} />
       <Route path="/locations/campsie" exact component={MenusPage} />
       <Route path="/locations/auburn" exact component={MenusPage} />
       <Route path="/program" exact component={ProgramPage} />
