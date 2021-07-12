@@ -102,17 +102,14 @@ const PageLayout = (props) => {
     {
       path: '/philosophy',
       name: 'Service Philosophy',
-      visible: true,
     },
     {
       path: '/program',
       name: 'Educational Program',
-      visible: true,
     },
     {
       path: '/team',
       name: 'Management Team',
-      visible: true,
     },
     // {
     //   key: 'menu',
@@ -153,6 +150,7 @@ const PageLayout = (props) => {
     onTopMixMenuHeaderClick={handleGoHome}
     collapsed={collapsed}
     onCollapse={setCollapsed}
+    pageTitleRender={false}
     siderWidth={270}
     layout="top"
     navTheme="dark"
