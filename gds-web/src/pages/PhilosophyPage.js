@@ -73,7 +73,7 @@ const ContentSection = props => {
   return <section>
     <Title level={2}>{title}</Title>
 
-    <Paragraph style={{ fontWeight: 100 }}>
+    <Paragraph >
       <ul>
         {list.split('\n').map(x => x.trim()).filter(x => x).map((x, i) => (<li key={i}>{x}</li>))}
       </ul>
@@ -83,26 +83,26 @@ const ContentSection = props => {
 
 const PhilosophyPage = (props) => {
 
-  return <PageContainer 
-  image="/images/home/1.jpg"
-  footerImage="/images/logo/smile.png"
-  bgColor="#cf035c"
-  contentBgColor="#cf035cee"
+  return <PageContainer
+    image="/images/home/1.jpg"
+    footerImage="/images/logo/smile.png"
+    bgColor="#cf035c"
+    contentBgColor="#cf035cee"
   >
-        <Title >Golden Seeds Service Philosophy</Title>
-        {content.map((c, i) => <ContentSection key={i} title={c.title} list={c.list} />)}
+    <Title style={{textAlign: 'center'}}>Golden Seeds Service Philosophy</Title>
+    {content.map((c, i) => <ContentSection key={i} title={c.title} list={c.list} />)}
 
-        <Title level={2} >On Inclusion and Diversity</Title>
-        <Paragraph style={{ fontWeight: 100 }}>
-          Each individual child, family and team member have the right to learn and are encouraged to develop and grow to their full potential. This is true regardless of gender, ethnicity, religion, abilities or social cultural background. Differences and individuality amongst educators, children and families are valued and considered in all interactions, programs, and service delivery.
-        </Paragraph>
-        <Row justify="space-between" align="bottom" style={{ marginTop: 30 }}>
+    <Title level={2} >On Inclusion and Diversity</Title>
+    <Paragraph >
+      Each individual child, family and team member have the right to learn and are encouraged to develop and grow to their full potential. This is true regardless of gender, ethnicity, religion, abilities or social cultural background. Differences and individuality amongst educators, children and families are valued and considered in all interactions, programs, and service delivery.
+    </Paragraph>
+    <Row justify="space-between" align="bottom" style={{ marginTop: 30 }}>
 
-          <Paragraph style={{ fontWeight: 100 }}>
-            *Please also see our Acknowledgement of Country.<br />
-            Revised: August 2020
-          </Paragraph>
-        </Row>
+      <Paragraph >
+        *Please also see our Acknowledgement of Country.<br />
+        Revised: August 2020
+      </Paragraph>
+    </Row>
 
   </PageContainer>
 }

@@ -9,11 +9,12 @@ import Icon from '@ant-design/icons';
 
 const { Title, Text, Paragraph, Link } = Typography;
 const StyledParagraph = styled(Paragraph)`
-  font-weight: 100;
+  // font-weight: 100;
 `;
 
 const StyledLink = styled(Link)`
-  color: #280071 !important;
+  color: #ffd100 !important;
+  word-break: break-all;
 
   &:hover {
     text-decoration: underline !important;
@@ -42,8 +43,8 @@ const ProgramPage = (props) => {
 
   return <PageContainer 
   image="/images/home/3.jpg" 
-  contentBgColor="#63cc96ee"
-  bgColor="#63cc96"
+  contentBgColor="#7782D7ee"
+  bgColor="#7782D7"
   footerImage="/images/logo/balloon.png"
   >
     <Title style={{ textAlign: 'center' }}>Educational Program</Title>
@@ -63,7 +64,7 @@ const ProgramPage = (props) => {
     </StyledParagraph>
     <StyledParagraph>
       For more information on the EYLF, please click the link below<br />
-      <StyledLink href={urlLink}><Icon component={() => <MdOpenInNew />}/> {urlLink}</StyledLink>
+      <StyledLink href={urlLink} target="_blank">{urlLink} <Icon component={() => <MdOpenInNew />}/> </StyledLink>
     </StyledParagraph>
   </PageContainer>
 }

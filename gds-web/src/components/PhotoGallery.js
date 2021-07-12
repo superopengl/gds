@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
+import PropTypes from 'prop-types';
+
 
 const Container = styled.div`
 
@@ -99,8 +101,16 @@ const photos = [
   }
 ];
 
-const MenusPage = (props) => {
+const PhotoGallery = (props) => {
+  const {images} = props;
 
+  const photos = React.useMemo(() => {
+    return images.map(x => ({
+      src: x,
+      width: 1,
+      height: 1,
+    }))
+  }, [images]);
   const [currentImage, setCurrentImage] = React.useState(0);
   const [viewerIsOpen, setViewerIsOpen] = React.useState(false);
 
@@ -140,8 +150,12 @@ const MenusPage = (props) => {
   </Container>
 }
 
-MenusPage.propTypes = {};
+PhotoGallery.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired
+};
 
-MenusPage.defaultProps = {};
+PhotoGallery.defaultProps = {
+  images: []
+};
 
-export default withRouter(MenusPage);
+export default withRouter(PhotoGallery);

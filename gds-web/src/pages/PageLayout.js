@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { withRouter, Link, Switch, Route, Redirect } from 'react-router-dom';
 import ProLayout from '@ant-design/pro-layout';
 import smoothscroll from 'smoothscroll-polyfill';
-import MenusPage from './MenusPage';
+import PhotoGallery from '../components/PhotoGallery';
 import ProgramPage from './ProgramPage';
 import HomePage from './HomePage';
 import PhilosophyPage from './PhilosophyPage';
@@ -44,7 +44,7 @@ const StyledLayout = styled(ProLayout)`
 // }
 
 .ant-pro-top-menu {
-  background: #00c1d5cc !important;
+  background: #00c1d5dd !important;
 }
 
 // .ant-pro-top-nav-header {
@@ -72,6 +72,11 @@ const StyledLayout = styled(ProLayout)`
   color: rgba(255,255,255,0.95);
   font-weight: 400;
 }
+
+
+
+
+
 `;
 
 const scrollToElement = (selector) => {
@@ -91,10 +96,6 @@ function getSanitizedPathName(pathname) {
 const PageLayout = (props) => {
   const [collapsed, setCollapsed] = React.useState(false);
   const [pathname, setPathname] = React.useState(getSanitizedPathName(props.location.pathname));
-
-  React.useEffect(() => {
-    setCollapsed(false);
-  }, [pathname]);
 
   const ROUTES = [
 
@@ -141,10 +142,10 @@ const PageLayout = (props) => {
 
   const handleGoHome = () => {
       props.history.push('/');
-      setCollapsed(false);
+      setCollapsed(true);
   }
 
-  return   <StyledLayout
+  return <StyledLayout
     logo="/images/logo/smile.png"
     title={null}
     // logo="/images/logo-transparent.png"
@@ -170,8 +171,11 @@ const PageLayout = (props) => {
         return <Text type="secondary">{dom}</Text>
       }
       return <Link to={item.path} onClick={() => {
+        setCollapsed(true);
         setPathname(item.path);
+
       }}>
+
         {dom}
       </Link>
     }}
@@ -180,11 +184,11 @@ const PageLayout = (props) => {
       <Route path="/" exact component={HomePage} />
       <Route path="/locations/north_narrabeen" exact component={NorthNarrabeenPage} />
       <Route path="/locations/campsie" exact component={CampsiePage} />
-      <Route path="/locations/auburn" exact component={MenusPage} />
+      <Route path="/locations/auburn" exact component={PhotoGallery} />
       <Route path="/program" exact component={ProgramPage} />
       <Route path="/philosophy" exact component={PhilosophyPage} />
       <Route path="/team" exact component={TeamPage} />
-      <Route path="/menus" exact component={MenusPage} />
+      <Route path="/menus" exact component={PhotoGallery} />
       <Redirect to="/" />
     </Switch>
     {/* <HomeFooter /> */}

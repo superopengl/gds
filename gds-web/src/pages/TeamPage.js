@@ -38,11 +38,11 @@ const urlLink = 'https://www.acecqa.gov.au/sites/default/files/2018-02/belonging
 
 const TeamPage = (props) => {
 
-  return <PageContainer 
-  image="/images/home/2.jpg" 
-  bgColor="#ED9CB3"
-  contentBgColor="#ED9CB3ee"
-  footerImage="/images/logo/pray.png"
+  return <PageContainer
+    image="/images/home/2.jpg"
+    bgColor="#FFB554"
+    contentBgColor="#FFB554ee"
+    footerImage="/images/logo/pray.png"
   >
     <Title style={{ textAlign: 'center' }}>Management Team</Title>
     <List
@@ -59,18 +59,22 @@ const TeamPage = (props) => {
       renderItem={item => <List.Item>
         <Card
           hoverable
+          bordered
           bodyStyle={{ textAlign: 'center' }}
           cover={
-          <Image
-            preview={false}
-            src={item.photoUrl}
-          />
-          // <Row justify="center" align="middle">
-          // <Avatar src={item.photoUrl} size={300}/>
-          // </Row>
+            <Image
+              preview={false}
+              src={item.photoUrl}
+            />
+            // <Row justify="center" align="middle">
+            // <Avatar src={item.photoUrl} size={300}/>
+            // </Row>
           }
         >
-          <Card.Meta title={item.name} description={<>{item.position} {item.location}</>} />
+          <Card.Meta
+            title={<Title level={3} style={{ color: '#280071cc' }} strong>{item.name}</Title>}
+            description={<Text  style={{ color: '#280071cc' }}>{item.position} {item.location}</Text>}
+          />
         </Card>
       </List.Item>}
     />
