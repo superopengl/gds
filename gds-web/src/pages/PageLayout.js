@@ -38,9 +38,14 @@ const StyledLayout = styled(ProLayout)`
   width: 100%;
 }
 
-// .ant-pro-top-menu {
-//   background: transparent !important;
+// .top-nav-menu {
+//   display: flex;
+//   justify-content: flex-end;
 // }
+
+.ant-pro-top-menu {
+  background: #00c1d5cc !important;
+}
 
 // .ant-pro-top-nav-header {
 //   // box-shadow: none;
@@ -63,10 +68,10 @@ const StyledLayout = styled(ProLayout)`
 //   color: rgba(0,0,0,0.75);
 // }
 
-// .ant-pro-menu-item-title {
-//   color: rgba(255,255,255,0.95);
-//   font-weight: 400;
-// }
+.ant-pro-menu-item-title {
+  color: rgba(255,255,255,0.95);
+  font-weight: 400;
+}
 `;
 
 const scrollToElement = (selector) => {
@@ -108,12 +113,12 @@ const PageLayout = (props) => {
       name: 'Management Team',
       visible: true,
     },
-    {
-      key: 'menu',
-      path: '/menus',
-      name: 'Menus',
-      visible: true,
-    },
+    // {
+    //   key: 'menu',
+    //   path: '/menus',
+    //   name: 'Menus',
+    //   visible: true,
+    // },
     {
       name: 'Locations',
       routes: [
@@ -140,7 +145,7 @@ const PageLayout = (props) => {
   }
 
   return   <StyledLayout
-    logo="/images/logo2.png"
+    logo="/images/logo/smile.png"
     title={null}
     // logo="/images/logo-transparent.png"
     onMenuHeaderClick={handleGoHome}
@@ -149,13 +154,13 @@ const PageLayout = (props) => {
     onCollapse={setCollapsed}
     siderWidth={270}
     layout="top"
-    navTheme="light"
+    navTheme="dark"
     route={{ routes: ROUTES }}
     location={{ pathname }}
     fixedHeader={true}
     // footerRender={() => <HomeFooter />}
     contentStyle={{
-      padding: '48px 0 0',
+      padding: '0',
       backgroundColor: '#00c1d5',
       // height: '100%'
     }}
@@ -182,7 +187,7 @@ const PageLayout = (props) => {
       <Route path="/menus" exact component={MenusPage} />
       <Redirect to="/" />
     </Switch>
-    <HomeFooter />
+    {/* <HomeFooter /> */}
   </StyledLayout>
     
 }

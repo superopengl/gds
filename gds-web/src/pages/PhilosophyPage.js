@@ -2,11 +2,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import { Typography, Row } from 'antd';
+import { Typography, Row, Space, Image } from 'antd';
+import PageContainer from 'components/PageContainer';
 
 const { Title, Text, Paragraph } = Typography;
 const Container = styled.div`
+  padding: 150px 20px 80px;
+  background: linear-gradient(to bottom,rgba(0,0,0,0) 0, rgba(0,0,0,0) 600px, #00c1d5 800px, #00c1d5 100%), url("/images/home/1.jpg") no-repeat;
+  background-size: cover;
+  // display: flex;
+  // justify-content: center;
+  min-height: 100vh;
+  .ant-typography {
+    color: rgba(255,255,255,1);
+    // text-align: center;
+  }
 
+  ul {
+    list-style-type:disc;
+  }
 `;
 
 const content = [
@@ -57,37 +71,40 @@ const ContentSection = props => {
   const { title, list } = props;
 
   return <section>
-    <Row justify="center">
-      <Title level={2}>{title}</Title>
-    </Row>
-    <Row justify="center">
+    <Title level={2}>{title}</Title>
 
-      <Paragraph>
-        <ul>
-          {list.split('\n').map(x => x.trim()).filter(x => x).map((x, i) => (<li key={i}>{x}</li>))}
-        </ul>
-      </Paragraph>
-    </Row>
+    <Paragraph style={{ fontWeight: 100 }}>
+      <ul>
+        {list.split('\n').map(x => x.trim()).filter(x => x).map((x, i) => (<li key={i}>{x}</li>))}
+      </ul>
+    </Paragraph>
   </section>
 }
 
 const PhilosophyPage = (props) => {
 
-  return <Container>
-    <Title style={{ textAlign: 'center' }}>GOLDEN SEEDS SERVICE PHILOSOPHY</Title>
-    {content.map((c, i) => <ContentSection key={i} title={c.title} list={c.list} />)}
+  return <PageContainer 
+  image="/images/home/1.jpg"
+  footerImage="/images/logo/smile.png"
+  bgColor="#cf035c"
+  contentBgColor="#cf035cee"
+  >
+        <Title >Golden Seeds Service Philosophy</Title>
+        {content.map((c, i) => <ContentSection key={i} title={c.title} list={c.list} />)}
 
-    <Title level={2} style={{ textAlign: 'center' }}>On Inclusion and Diversity</Title>
-    <Paragraph>
-      Each individual child, family and team member have the right to learn and are encouraged to develop and grow to their full potential. This is true regardless of gender, ethnicity, religion, abilities or social cultural background. Differences and individuality amongst educators, children and families are valued and considered in all interactions, programs, and service delivery.
-    </Paragraph>
-    <Paragraph type="danger">
-      *Please also see our Acknowledgement of Country.
-    </Paragraph>
-    <Paragraph>
-      Revised: August 2020
-    </Paragraph>
-  </Container>
+        <Title level={2} >On Inclusion and Diversity</Title>
+        <Paragraph style={{ fontWeight: 100 }}>
+          Each individual child, family and team member have the right to learn and are encouraged to develop and grow to their full potential. This is true regardless of gender, ethnicity, religion, abilities or social cultural background. Differences and individuality amongst educators, children and families are valued and considered in all interactions, programs, and service delivery.
+        </Paragraph>
+        <Row justify="space-between" align="bottom" style={{ marginTop: 30 }}>
+
+          <Paragraph style={{ fontWeight: 100 }}>
+            *Please also see our Acknowledgement of Country.<br />
+            Revised: August 2020
+          </Paragraph>
+        </Row>
+
+  </PageContainer>
 }
 
 PhilosophyPage.propTypes = {};

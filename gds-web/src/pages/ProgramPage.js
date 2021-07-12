@@ -3,11 +3,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import { Typography, Row } from 'antd';
+import PageContainer from 'components/PageContainer';
+import {MdOpenInNew} from 'react-icons/md';
+import Icon from '@ant-design/icons';
 
 const { Title, Text, Paragraph, Link } = Typography;
-const Container = styled.div`
-
+const StyledParagraph = styled(Paragraph)`
+  font-weight: 100;
 `;
+
+const StyledLink = styled(Link)`
+  color: #280071 !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+`
 
 const content = `
 Fostering a positive self-concept and self-esteem
@@ -29,27 +40,32 @@ const urlLink = 'https://www.acecqa.gov.au/sites/default/files/2018-02/belonging
 
 const ProgramPage = (props) => {
 
-  return <Container>
+  return <PageContainer 
+  image="/images/home/3.jpg" 
+  contentBgColor="#63cc96ee"
+  bgColor="#63cc96"
+  footerImage="/images/logo/balloon.png"
+  >
     <Title style={{ textAlign: 'center' }}>Educational Program</Title>
-    <Paragraph>
+    <StyledParagraph>
       Golden Seeds’ Educational Program is based on the ‘Being Belonging Becoming-Early Years Learning Framework’ for Early Childhood Education & Care services.
-    </Paragraph>
-    <Paragraph>
+    </StyledParagraph>
+    <StyledParagraph>
       Our program provides a variety of developmentally appropriate experiences and materials that are encouraged to foster the following goals and skills of:
       <ul>
         {content.map((c, i) => <li key={i}>{c}</li>)}
       </ul>
-    </Paragraph>
+    </StyledParagraph>
 
     <Title level={2} style={{ textAlign: 'center' }}>On Inclusion and Diversity</Title>
-    <Paragraph>
+    <StyledParagraph>
       These goals are based on the learning outcomes within the framework, which educators strive to meet with the children as they embark on their early childhood journey throughout their time at Golden Seeds.
-    </Paragraph>
-    <Paragraph>
+    </StyledParagraph>
+    <StyledParagraph>
       For more information on the EYLF, please click the link below<br />
-      <Link href={urlLink}>{urlLink}</Link>
-    </Paragraph>
-  </Container>
+      <StyledLink href={urlLink}><Icon component={() => <MdOpenInNew />}/> {urlLink}</StyledLink>
+    </StyledParagraph>
+  </PageContainer>
 }
 
 ProgramPage.propTypes = {};

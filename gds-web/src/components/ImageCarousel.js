@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import { Carousel } from 'antd';
 import { withRouter } from 'react-router-dom';
 import { useWindowWidth } from '@react-hook/window-size'
+import ImageGallery from 'react-image-gallery';
 
 const ContainerStyled = styled.div`
-border-bottom: 1px solid #f0f0f0;
+// border-bottom: 1px solid #f0f0f0;
 margin: 0 auto 0 auto;
 width: 100%;
+// height: 100%;
 `;
 
 const ImgStyled = styled.div`
@@ -17,7 +19,8 @@ background-position: center;
 width: 100%;
 overflow: hidden;
 // height: 600px;
-box-shadow: inset 0 -10px 10px -10px #888888;
+// box-shadow: inset 0 -10px 10px -10px #888888;
+// height: 100%;
 `
 
 const ImageCarousel = props => {
@@ -32,10 +35,10 @@ const ImageCarousel = props => {
 
   return (
     <ContainerStyled>
-      <Carousel autoplay dotPosition="bottom" >
+      <Carousel autoplay dotPosition="bottom">
         {images.map((x, i) => (
           <div key={i}>
-            <ImgStyled style={{ height: posterHeight, backgroundImage: `url("${x}")` }}>
+            <ImgStyled style={{height: 'calc(100vh)', backgroundImage: `url("${x}")` }}>
             </ImgStyled>
           </div>
         ))}

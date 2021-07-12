@@ -3,36 +3,34 @@ import React from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import { Typography, Row, Col, List, Card, Image, Avatar } from 'antd';
+import PageContainer from 'components/PageContainer';
 
 const { Title, Text, Paragraph, Link } = Typography;
-const Container = styled.div`
-  padding: 3rem 1rem 20rem;
-`;
 
 const content = [
   {
     name: 'Song Yang',
     position: 'Owner/Approved Provider',
     location: '',
-    photoUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    photoUrl: '/images/team/team3.jpg',
   },
   {
     name: 'Licien Batista',
     position: 'Operations Manager',
     location: '',
-    photoUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    photoUrl: '/images/team/team1.jpg',
   },
   {
     name: 'Michelle Webb',
     position: 'Director/Nominated Supervisor',
     location: 'North Narrabeen',
-    photoUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    photoUrl: '/images/team/team2.jpg',
   },
   {
     name: 'Vicky Hayes',
     position: 'Assistant Director/Educational Leader',
     location: 'North Narrabeen',
-    photoUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    photoUrl: '/images/team/team4.jpg',
   },
 ]
 
@@ -40,17 +38,22 @@ const urlLink = 'https://www.acecqa.gov.au/sites/default/files/2018-02/belonging
 
 const TeamPage = (props) => {
 
-  return <Container>
+  return <PageContainer 
+  image="/images/home/2.jpg" 
+  bgColor="#ED9CB3"
+  contentBgColor="#ED9CB3ee"
+  footerImage="/images/logo/pray.png"
+  >
     <Title style={{ textAlign: 'center' }}>Management Team</Title>
     <List
       grid={{
-        gutter: [32, 32],
+        gutter: [48, 48],
         xs: 1,
-        sm: 2,
-        md: 2,
-        lg: 3,
-        xl: 3,
-        xxl: 4,
+        sm: 1,
+        md: 1,
+        lg: 2,
+        xl: 2,
+        xxl: 2,
       }}
       dataSource={content}
       renderItem={item => <List.Item>
@@ -71,7 +74,7 @@ const TeamPage = (props) => {
         </Card>
       </List.Item>}
     />
-  </Container>
+  </PageContainer>
 }
 
 TeamPage.propTypes = {};
