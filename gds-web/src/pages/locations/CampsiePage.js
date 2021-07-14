@@ -155,6 +155,7 @@ const CampsiePage = () => {
         phone="02 8580 9588"
         email="campsie@goldenseeds.com.au"
         website="https://www.goldenseeds.com.au"
+        qr="/images/c_qr.jpg"
       />
     </PageContainer>
   );

@@ -5,8 +5,8 @@ import { withRouter } from 'react-router-dom';
 import { Table, Row, Space, Image, Typography } from 'antd';
 import PropTypes from 'prop-types';
 import { Descriptions } from 'antd';
-import { HomeOutlined, PhoneOutlined, MailOutlined, GlobalOutlined } from '@ant-design/icons';
-import { HomeFilled, PhoneFilled, MailFilled, } from '@ant-design/icons';
+import { HomeOutlined, PhoneOutlined, QrcodeOutlined, GlobalOutlined } from '@ant-design/icons';
+import { HomeFilled, PhoneFilled, MailFilled } from '@ant-design/icons';
 
 const { Paragraph, Text, Link } = Typography;
 
@@ -29,7 +29,7 @@ const StyledDescriptions = styled(Descriptions)`
 
 const ContactPanel = (props) => {
 
-  const { address, phone, email, website } = props;
+  const { address, phone, email, website, qr } = props;
 
   return <StyledDescriptions column={1} size="small">
     <Descriptions.Item label={<Space><HomeFilled />Address</Space>}>
@@ -44,6 +44,9 @@ const ContactPanel = (props) => {
     <Descriptions.Item label={<Space><GlobalOutlined />Website</Space>}>
       <Link href={website} target="_blank">{website}</Link>
     </Descriptions.Item>
+    {qr && <Descriptions.Item label={<Space><QrcodeOutlined />QR</Space>}>
+      <Image preview={true} src={qr} width={150} />
+    </Descriptions.Item>}
   </StyledDescriptions>
 }
 
@@ -52,6 +55,7 @@ ContactPanel.propTypes = {
   phone: PropTypes.string,
   email: PropTypes.string,
   website: PropTypes.string,
+  qr: PropTypes.string,
 };
 
 ContactPanel.defaultProps = {

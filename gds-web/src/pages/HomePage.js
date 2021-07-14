@@ -49,7 +49,6 @@ border-color: #ffd100;
 border: none;
 color: #280071cc;
 background-color: #ffffff77;
-border-radius: 16px;
 
 &:hover {
 border-color: #ffd100;
@@ -74,7 +73,9 @@ const HomePage = props => {
           </Title>
           <Text style={{ color: '#ffd100', fontSize: 22 }}><small>~ Bryan E. Wright</small></Text>
           <Paragraph style={{ maxWidth: 800, color: '#280071cc', marginTop: 30 }}>
+            <big>
             We imagine every child to be like a little seed - they are born with everything they need to thrive. We support children to unlock their full potential by providing them with a welcoming environment and the loving guidance they need to flourish. We place developing and maintaining meaningful relationships at the heart of all we do.
+            </big>
           </Paragraph>
         </Space>
 
